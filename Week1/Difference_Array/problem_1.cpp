@@ -1,10 +1,11 @@
+// Brute force method
 #include<iostream>
 #include<vector>
 
 using namespace std;
 
 int main() {
-    int n, L, R, result = 0;
+    int n, L, q, R, result = 0;
     cout << "Enter array length: " << endl;
     cin>>n;
     vector<int> arr(n);
@@ -13,14 +14,25 @@ int main() {
     {
         cin >> arr[i];
     }
-    cout << "Enter L and R value: " << endl;
-    cin >> L >> R;
-    int count = 1;
-    for (int i = L; i <= R; i++)
-    {
-        result += count * arr[i];
-        count++;
+
+    cin>>q;
+    while (q--) {
+        cout << "Enter L and R value: " << endl;
+        cin >> L >> R;
+        int count = 1;
+        for (int i = L; i <= R; i++)
+        {
+            result += count * arr[i];
+            count++;
+        }
     }
+    /*
+    for (int i = L; i < R; i++) {
+        result += (i-L+1) * arr[i];
+    }
+    */
     cout << "Result: " << endl;
     cout<<result<<endl;
+
+    //T.C:- N*N*q;
 }
